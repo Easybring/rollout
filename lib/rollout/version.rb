@@ -1,3 +1,3 @@
 class Rollout
-  VERSION = "2.0.0g"
+  VERSION = "2.0.0e"
 end

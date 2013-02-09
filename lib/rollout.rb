@@ -43,14 +43,14 @@ class Rollout
     def add_ip(ip)
       begin 
         if IPAddress.valid? ip
-          @ips << ip.to_sym unless @ips.include?(ip.to_s)
+          @ips << ip.to_s unless @ips.include?(ip.to_s)
         end
       rescue
       end
     end
 
     def remove_ip(ip)
-      @ips.delete(ip.to_sym)
+      @ips.delete(ip.to_s)
     end
 
 

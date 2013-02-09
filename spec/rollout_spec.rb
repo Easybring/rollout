@@ -219,7 +219,6 @@ describe "Rollout" do
     end
   end
 
-
   describe "feature should be active for defined ips" do
     before do
       @rollout.activate_ip(:chat, "127.0.0.1")
@@ -235,11 +234,20 @@ describe "Rollout" do
     end
   end
 
+  describe "feature should be deactived for defined ips" do
+    before do
+      @rollout.activate_ip(:chat, "192.168.10.1")      
+      @rollout.deactivate_ip(:chat, "192.168.10.1")
+    end
+
+    it "feature is active for ip" do
+      @rollout.should_not be_active_ip(:chat, "192.168.10.1")
+    end
+  end
+
+
   describe "feature should be active for percentage of ips" do
     before do
-      @rollout.deactivate_ip(:chat, "127.0.0.1")
-      @rollout.deactivate_ip(:chat, "192.168.0.1")
-      @rollout.deactivate_ip(:chat, "192.168.10.1")
       @rollout.activate_percentage(:chat, 50) 
     end
 

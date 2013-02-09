@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    rollout (2.0.0f)
+    rollout (2.0.0g)
       ipaddress
       redis
 
